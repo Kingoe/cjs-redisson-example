@@ -16,10 +16,11 @@ public class RedissonConfig {
     @Bean
     public RedissonClient redissonClient() {
         Config config = new Config();
-        config.useClusterServers()
-                .setScanInterval(2000)
-                .addNodeAddress("redis://10.0.29.30:6379", "redis://10.0.29.95:6379")
-                .addNodeAddress("redis://10.0.29.205:6379");
+        config.useSingleServer().setAddress("redis://127.0.0.1:6379");
+//        config.useClusterServers()
+//                .setScanInterval(2000)
+//                .addNodeAddress("redis://10.0.29.30:6379", "redis://10.0.29.95:6379")
+//                .addNodeAddress("http://127.0.0.1:6379");
 
         RedissonClient redisson = Redisson.create(config);
 

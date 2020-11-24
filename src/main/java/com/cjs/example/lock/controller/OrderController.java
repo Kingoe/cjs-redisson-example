@@ -26,4 +26,9 @@ public class OrderController {
         return true;
     }
 
+    @PutMapping("/change")
+    public void change() {
+        orderService.changeOrder();
+    }
+
 }

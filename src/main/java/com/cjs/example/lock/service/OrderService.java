@@ -8,4 +8,5 @@ public interface OrderService {
 
     String save(Integer userId, Integer productId);
 
+    void changeOrder();
 }

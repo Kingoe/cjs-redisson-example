@@ -5,14 +5,15 @@ spring:
     name: cjs-redisson-example
   redis:
     cluster:
-      nodes: 10.0.29.30:6379, 10.0.29.95:6379, 10.0.29.205:6379
+      nodes: 127.0.0.1:6379
+#      nodes: 10.0.29.30:6379, 10.0.29.95:6379, 10.0.29.205:6379
     lettuce:
       pool:
         min-idle: 0
         max-idle: 8
         max-active: 20
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver

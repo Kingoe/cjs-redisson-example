@@ -72,4 +72,20 @@ public class OrderServiceImpl implements OrderService {
         return null;
     }
 
+    @Override
+    public void changeOrder() {
+        log.info("change order start");
+        RLock lock = redissonClient.getLock("stock");
+        try {
+            lock.tryLock(5, TimeUnit.SECONDS);
+            Thread.sleep(20000);
+        } catch (Exception e) {
+            log.error("异常");
+            lock.unlock();
+        } finally {
+            lock.unlock();
+        }
+        log.info("change order end");
+    }
+
 }
